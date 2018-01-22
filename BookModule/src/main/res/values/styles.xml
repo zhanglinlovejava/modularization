@@ -1,0 +1,18 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="book_AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/book_colorPrimary</item>
+        <item name="colorPrimaryDark">@color/book_colorPrimaryDark</item>
+        <item name="colorAccent">@color/book_colorAccent</item>
+    </style>
+
+    <style name="book_CardView.Content" parent="android:Widget">
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingTop">24dp</item>
+        <item name="android:paddingBottom">24dp</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+</resources>

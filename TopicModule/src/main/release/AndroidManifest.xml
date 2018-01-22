@@ -1,0 +1,15 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.zhanglin.mylibrary2">
+
+
+    <application
+        android:allowBackup="true"
+        android:supportsRtl="true">
+        <activity
+            android:name="com.zhanglin.topic.ui.activity.NewsListActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.zhanglin.topic.ui.activity.NewDetailActivity"
+             />
+    </application>
+</manifest>

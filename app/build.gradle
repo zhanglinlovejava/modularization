@@ -1,0 +1,37 @@
+apply plugin: 'com.android.application'
+android {
+    compileSdkVersion 26
+    buildToolsVersion '26.0.2'
+    defaultConfig {
+        applicationId "com.zhanglin.testmodule"
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    if (!isDebug.toBoolean()) {
+        api project(':BookModule')
+        api project(':TopicModule')
+    } else {
+        api project(':RouterLibrary')
+        api project(':BasicComponentLayerLibrary')
+    }
+    annotationProcessor 'com.alibaba:arouter-compiler:1.1.2'
+
+}
+

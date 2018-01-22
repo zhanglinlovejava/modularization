@@ -1,0 +1,53 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion '26.0.2'
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    compileOnly 'junit:junit:4.12'
+    //noinspection GradleCompatible
+    api 'com.android.support:appcompat-v7:26.1.0'
+    api 'com.android.support:recyclerview-v7:26.1.0'
+    api 'com.android.support:cardview-v7:26.1.0'
+    //noinspection GradleCompatible
+    compile 'com.android.support:design:27.0.2'
+
+    // Retrofit
+    api 'com.squareup.retrofit2:retrofit:2.0.2'
+    api 'com.squareup.retrofit2:converter-gson:2.0.2'
+    api 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
+    //okhttp
+    api 'com.squareup.okhttp3:okhttp:3.2.0'
+    api 'com.squareup.okhttp3:logging-interceptor:3.2.0'
+    //Rx
+    api 'io.reactivex:rxandroid:1.0.1'
+    api 'io.reactivex:rxjava:1.0.1'
+    api 'com.github.bumptech.glide:glide:3.6.0'
+    //butterknife
+    api 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    compile 'com.github.czy1121:loadinglayout:1.0.1'
+    compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.4-7'
+
+}

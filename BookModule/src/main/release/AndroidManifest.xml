@@ -1,0 +1,13 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.zhanglin.book">
+
+
+    <application
+        android:allowBackup="true"
+        android:supportsRtl="true">
+        <activity
+            android:name="com.zhanglin.book.ui.activity.BookListActivity"
+            android:label="@string/book_app_name" />
+        <activity android:name="com.zhanglin.book.ui.activity.BookDetailActivity" />
+    </application>
+</manifest>
