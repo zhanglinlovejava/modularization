@@ -1,7 +1,7 @@
 package com.zhanglin.topic.api;
 
 
-import com.zhanglin.basiccomponent.utils.ConverterName;
+import com.zhanglin.commonlib.utils.ConverterName;
 import com.zhanglin.topic.entity.NewsDetailEntity;
 import com.zhanglin.topic.entity.NewsEntity;
 

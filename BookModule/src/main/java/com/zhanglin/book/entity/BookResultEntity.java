@@ -2,9 +2,6 @@ package com.zhanglin.book.entity;
 
 import java.util.ArrayList;
 
-/**
- * Created by erfli on 6/14/16.
- */
 public class BookResultEntity {
     public int count;
     public int start;

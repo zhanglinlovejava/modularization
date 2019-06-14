@@ -2,7 +2,7 @@ package com.zhanglin.topic.ui.presenter;
 
 import android.support.annotation.NonNull;
 
-import com.zhanglin.basiccomponent.base.presenter.BasePresenter;
+import com.zhanglin.commonlib.base.presenter.BasePresenter;
 import com.zhanglin.topic.api.NewsServiceApi;
 import com.zhanglin.topic.entity.NewsDetailEntity;
 import com.zhanglin.topic.ui.view.INewsDetailView;
@@ -45,7 +45,7 @@ public class NewDetailPresenter extends BasePresenter<INewsDetailView> {
 
                     @Override
                     public void onError(Throwable e) {
-                        view.showError();
+                        view.showError(e.getMessage());
                     }
 
                     @Override

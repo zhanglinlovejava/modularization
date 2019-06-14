@@ -2,7 +2,8 @@ package com.zhanglin.book.ui.presenter;
 
 import android.support.annotation.NonNull;
 
-import com.zhanglin.basiccomponent.base.presenter.BasePresenter;
+import com.zhanglin.commonlib.base.api.ThrowableResult;
+import com.zhanglin.commonlib.base.presenter.BasePresenter;
 import com.zhanglin.book.api.BookServiceApi;
 import com.zhanglin.book.entity.BookResultEntity;
 import com.zhanglin.book.ui.view.IBookView;
@@ -44,7 +45,7 @@ public class BookListPresenter extends BasePresenter<IBookView> {
 
                     @Override
                     public void onError(Throwable e) {
-                        view.showError();
+                        view.showError(((ThrowableResult)e).getErrorMsg());
                     }
 
                     @Override

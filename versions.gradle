@@ -1,0 +1,55 @@
+ext.deps = [:]
+
+def versions = [:]
+versions.android_gradle_plugin = "3.0.1"
+versions.support = "26.1.0"
+versions.glide = "3.6.0"
+versions.rxjava2 = "1.0.1"
+versions.rx_android = "1.0.1"
+versions.retrofit = "2.0.2"
+versions.okhttp = "3.2.0"
+versions.gson = "2.8.2"
+//Arouter
+versions.arouter_compiler = "1.1.2"
+versions.arouter_api = "1.2.1"
+
+versions.buttferknife = "8.8.1"
+
+
+def deps = [:]
+def support = [:]
+support.annotations = "com.android.support:support-annotations:$versions.support"
+support.app_compat = "com.android.support:appcompat-v7:$versions.support"
+support.recyclerview = "com.android.support:recyclerview-v7:$versions.support"
+support.cardview = "com.android.support:cardview-v7:$versions.support"
+support.design = "com.android.support:design:27.0.2"
+deps.support = support
+
+def build_versions = [:]
+build_versions.min_sdk = 16
+build_versions.target_sdk = 26
+build_versions.build_tools = "26.0.2"
+ext.build_versions = build_versions
+
+def retrofit = [:]
+retrofit.runtime = "com.squareup.retrofit2:retrofit:$versions.retrofit"
+retrofit.adapter = "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofi"
+retrofit.gson = "com.squareup.retrofit2:converter-gson:$versions.retrofit"
+deps.retrofit = retrofit
+
+//view
+deps.android_gradle_plugin = "com.android.tools.build:gradle:$versions.android_gradle_plugin"
+deps.rxjava2 = "io.reactivex:rxjava:$versions.rxjava2"
+deps.rx_android = "io.reactivex:rxandroid:$versions.rx_android"
+//other
+deps.glide = "com.github.bumptech.glide:glide:$versions.glide"
+deps.gson = "com.google.code.gson:gson:$versions.gson"
+deps.arouter_api = "com.alibaba:arouter-api:$versions.arouter_api"
+deps.arouter_compiler = "com.alibaba:arouter-compiler:$versions.arouter_compiler"
+deps.okhttp = "com.squareup.okhttp3:okhttp:$versions.okhttp"
+deps.okhttp_interceptor = "com.squareup.okhttp3:logging-interceptor:$versions.okhttp"
+deps.loadinglayout = "com.github.czy1121:loadinglayout:1.0.1"
+deps.SmartRefreshLayout = "com.scwang.smartrefresh:SmartRefreshLayout:1.0.4-7"
+deps.butterknife = "com.jakewharton:butterknife:$versions.buttferknife"
+deps.butterknife_compiler = "com.jakewharton:butterknife-compiler:$versions.buttferknife"
+ext.deps = deps

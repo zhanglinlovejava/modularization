@@ -1,6 +1,6 @@
 package com.zhanglin.book.ui.view;
 
-import com.zhanglin.basiccomponent.base.view.BaseLoadingView;
+import com.zhanglin.commonlib.base.view.BaseLoadingView;
 import com.zhanglin.book.entity.BookEntity;
 
 import java.util.List;

@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/book_AppTheme">
         <meta-data
-            android:name="com.zhanglin.basiccomponent.utils.glide.CustomCachingGlideModule"
+            android:name="com.zhanglin.commonlib.utils.glide.CustomCachingGlideModule"
             android:value="GlideModule" />
 
         <activity

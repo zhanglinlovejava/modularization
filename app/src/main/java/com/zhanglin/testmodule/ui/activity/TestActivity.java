@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.zhanglin.arouter.RouterPath;
-import com.zhanglin.basiccomponent.base.activity.BaseLoadingActivity;
+import com.zhanglin.commonlib.base.activity.BaseLoadingActivity;
 
 
 /**

@@ -1,6 +1,6 @@
 package com.zhanglin.book.api;
 
-import com.zhanglin.basiccomponent.base.api.ApiService;
+import com.zhanglin.commonlib.base.api.ApiService;
 import com.zhanglin.book.entity.BookResultEntity;
 
 import java.util.HashMap;

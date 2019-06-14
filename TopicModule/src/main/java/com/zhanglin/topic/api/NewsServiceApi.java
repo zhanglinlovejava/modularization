@@ -1,6 +1,6 @@
 package com.zhanglin.topic.api;
 
-import com.zhanglin.basiccomponent.base.api.ApiService;
+import com.zhanglin.commonlib.base.api.ApiService;
 import com.zhanglin.topic.entity.NewsDetailEntity;
 import com.zhanglin.topic.entity.NewsEntity;
 

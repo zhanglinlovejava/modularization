@@ -3,8 +3,8 @@ package com.zhanglin.book.ui.adapter;
 
 import android.content.Context;
 
-import com.zhanglin.basiccomponent.base.adapter.BaseAdapter;
-import com.zhanglin.basiccomponent.base.adapter.BaseViewHolder;
+import com.zhanglin.commonlib.base.adapter.BaseAdapter;
+import com.zhanglin.commonlib.base.adapter.BaseViewHolder;
 import com.zhanglin.book.R;
 import com.zhanglin.book.entity.BookEntity;
 
