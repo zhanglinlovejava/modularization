@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         tools:replace="android:name">
         <meta-data
-            android:name="com.zhanglin.basiccomponent.utils.glide.CustomCachingGlideModule"
+            android:name="com.zhanglin.commonlib.utils.glide.CustomCachingGlideModule"
             android:value="GlideModule" />
 
         <activity

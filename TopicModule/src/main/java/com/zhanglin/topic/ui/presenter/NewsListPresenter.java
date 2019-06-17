@@ -2,15 +2,15 @@ package com.zhanglin.topic.ui.presenter;
 
 import android.support.annotation.NonNull;
 
-import com.zhanglin.basiccomponent.base.presenter.BasePresenter;
+import com.zhanglin.commonlib.base.presenter.BasePresenter;
 import com.zhanglin.topic.api.NewsServiceApi;
 import com.zhanglin.topic.entity.NewsEntity;
 import com.zhanglin.topic.ui.view.INewsListView;
 
 import java.util.Date;
 
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 
 /**
  * Created by zhanglin on 2018/1/16.
@@ -38,57 +38,65 @@ public class NewsListPresenter extends BasePresenter<INewsListView> {
         if (!isRefresh) {
             view.showLoadingView();
         }
-        mSubscriptions.add(newsServiceApi.getLatestNews().observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<NewsEntity>() {
-                    @Override
-                    public void onCompleted() {
+        newsServiceApi.getLatestNews().subscribe(new Observer<NewsEntity>() {
+            @Override
+            public void onSubscribe(Disposable d) {
 
-                    }
+            }
 
-                    @Override
-                    public void onError(Throwable e) {
-                        view.showNetErrView();
-                    }
+            @Override
+            public void onError(Throwable e) {
+                view.showNetErrView(e.getMessage());
+            }
 
-                    @Override
-                    public void onNext(NewsEntity newsEntity) {
-                        view.onRefreshCompleted();
-                        view.showRecycleContent();
-                        if (newsEntity != null && newsEntity.getStories().size() > 0) {
-                            view.setNewsList(newsEntity.getStories());
-                        } else {
-                            view.showEmptyView();
-                        }
-                    }
-                }));
+            @Override
+            public void onNext(NewsEntity newsEntity) {
+                view.onRefreshCompleted();
+                view.showRecycleContent();
+                if (newsEntity != null && newsEntity.getStories().size() > 0) {
+                    view.setNewsList(newsEntity.getStories());
+                } else {
+                    view.showEmptyView();
+                }
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
     }
 
     public void getHistoryNews(int page) {
         String key = String.valueOf(Long.valueOf(getDateString(new Date())) - page);
-        mSubscriptions.add(newsServiceApi.getHistoryNews(key).observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<NewsEntity>() {
-                    @Override
-                    public void onCompleted() {
+        newsServiceApi.getHistoryNews(key).subscribe(new Observer<NewsEntity>() {
+            @Override
+            public void onSubscribe(Disposable d) {
 
-                    }
+            }
 
-                    @Override
-                    public void onError(Throwable e) {
-                        view.noMoreData();
-                        view.showToast("没有更多新闻了");
-                    }
+            @Override
+            public void onNext(NewsEntity newsEntity) {
+                view.onLoadMoreComplete();
+                if (newsEntity != null && newsEntity.getStories().size() > 0) {
+                    view.onAddNews(newsEntity.getStories());
+                } else {
+                    view.noMoreData();
+                    view.showToast("没有更多新闻了");
+                }
+            }
 
-                    @Override
-                    public void onNext(NewsEntity newsEntity) {
-                        view.onLoadMoreComplete();
-                        if (newsEntity != null && newsEntity.getStories().size() > 0) {
-                            view.onAddNews(newsEntity.getStories());
-                        } else {
-                            view.noMoreData();
-                            view.showToast("没有更多新闻了");
-                        }
-                    }
-                }));
+            @Override
+            public void onError(Throwable e) {
+                view.noMoreData();
+                view.showToast("没有更多新闻了");
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
     }
 
     private String getDateString(Date date) {

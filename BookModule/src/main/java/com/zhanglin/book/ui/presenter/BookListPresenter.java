@@ -2,13 +2,15 @@ package com.zhanglin.book.ui.presenter;
 
 import android.support.annotation.NonNull;
 
-import com.zhanglin.basiccomponent.base.presenter.BasePresenter;
 import com.zhanglin.book.api.BookServiceApi;
 import com.zhanglin.book.entity.BookResultEntity;
 import com.zhanglin.book.ui.view.IBookView;
+import com.zhanglin.commonlib.base.api.ThrowableResult;
+import com.zhanglin.commonlib.base.presenter.BasePresenter;
 
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
+
 
 /**
  * Created by zhanglin on 2018/1/16.
@@ -35,27 +37,31 @@ public class BookListPresenter extends BasePresenter<IBookView> {
 
     public void getBooks() {
         view.showLoading();
-        mSubscriptions.add(bookServiceApi.getBooks()
-                .observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<BookResultEntity>() {
-                    @Override
-                    public void onCompleted() {
+        bookServiceApi.getBooks().subscribe(new Observer<BookResultEntity>() {
+            @Override
+            public void onSubscribe(Disposable d) {
 
-                    }
+            }
 
-                    @Override
-                    public void onError(Throwable e) {
-                        view.showError();
-                    }
+            @Override
+            public void onNext(BookResultEntity result) {
+                view.hideLoading();
+                if (result != null && result.books.size() > 0) {
+                    view.setBookList(result.books);
+                } else {
+                    view.showEmpty();
+                }
+            }
 
-                    @Override
-                    public void onNext(BookResultEntity result) {
-                        view.hideLoading();
-                        if (result != null && result.books.size() > 0) {
-                            view.setBookList(result.books);
-                        } else {
-                            view.showEmpty();
-                        }
-                    }
-                }));
+            @Override
+            public void onError(Throwable e) {
+                view.showError(((ThrowableResult) e).getErrorMsg());
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
     }
 }

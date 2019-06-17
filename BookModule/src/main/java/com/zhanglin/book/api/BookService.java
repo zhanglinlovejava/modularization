@@ -5,9 +5,9 @@ import com.zhanglin.book.entity.BookResultEntity;
 
 import java.util.Map;
 
+import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.QueryMap;
-import rx.Observable;
 
 /**
  * Created by zhanglin on 2017/7/25.

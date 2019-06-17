@@ -6,14 +6,14 @@ import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.zhanglin.arouter.RouterPath;
-import com.zhanglin.basiccomponent.base.activity.BaseLoadingActivity;
-import com.zhanglin.basiccomponent.base.adapter.BaseAdapter;
 import com.zhanglin.book.R;
 import com.zhanglin.book.entity.BookEntity;
 import com.zhanglin.book.ui.adapter.BookAdapter;
 import com.zhanglin.book.ui.presenter.BookListPresenter;
 import com.zhanglin.book.ui.view.IBookView;
+import com.zhanglin.commonlib.base.activity.BaseLoadingActivity;
+import com.zhanglin.commonlib.base.adapter.BaseAdapter;
+import com.zhanglin.commonlib.router.RouterPath;
 
 import java.util.List;
 

@@ -3,8 +3,8 @@ package com.zhanglin.testmodule.ui.activity;
 import android.view.View;
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.zhanglin.arouter.RouterPath;
-import com.zhanglin.basiccomponent.base.activity.BaseActivity;
+import com.zhanglin.commonlib.base.activity.BaseActivity;
+import com.zhanglin.commonlib.router.RouterPath;
 import com.zhanglin.testmodule.R;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {

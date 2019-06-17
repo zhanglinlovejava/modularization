@@ -1,6 +1,6 @@
 package com.zhanglin.topic.ui.view;
 
-import com.zhanglin.basiccomponent.base.view.BaseLoadingView;
+import com.zhanglin.commonlib.base.view.BaseLoadingView;
 import com.zhanglin.topic.entity.NewsDetailEntity;
 
 /**

@@ -1,14 +1,14 @@
 package com.zhanglin.topic.api;
 
 
-import com.zhanglin.basiccomponent.utils.ConverterName;
+import com.zhanglin.commonlib.utils.ConverterName;
 import com.zhanglin.topic.entity.NewsDetailEntity;
 import com.zhanglin.topic.entity.NewsEntity;
 
+import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
-import rx.Observable;
 
 /**
  * Created by zhanglin on 2017/7/25.

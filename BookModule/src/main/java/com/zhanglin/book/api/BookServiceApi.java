@@ -1,13 +1,15 @@
 package com.zhanglin.book.api;
 
-import com.zhanglin.basiccomponent.base.api.ApiService;
 import com.zhanglin.book.entity.BookResultEntity;
+import com.zhanglin.commonlib.base.api.ApiService;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import rx.Observable;
-import rx.schedulers.Schedulers;
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
+
 
 /**
  * Created by zhanglin on 2017/7/25.
@@ -25,6 +27,7 @@ public class BookServiceApi {
         params.put("q", "战争");
         params.put("start", "0");
         params.put("end", "50");
-        return bookService.getBooks(params).subscribeOn(Schedulers.io());
+        return bookService.getBooks(params).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
     }
 }

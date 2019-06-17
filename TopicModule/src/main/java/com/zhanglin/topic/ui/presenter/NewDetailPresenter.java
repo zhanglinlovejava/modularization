@@ -2,13 +2,13 @@ package com.zhanglin.topic.ui.presenter;
 
 import android.support.annotation.NonNull;
 
-import com.zhanglin.basiccomponent.base.presenter.BasePresenter;
+import com.zhanglin.commonlib.base.presenter.BasePresenter;
 import com.zhanglin.topic.api.NewsServiceApi;
 import com.zhanglin.topic.entity.NewsDetailEntity;
 import com.zhanglin.topic.ui.view.INewsDetailView;
 
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 
 /**
  * Created by zhanglin on 2018/1/18.
@@ -35,28 +35,31 @@ public class NewDetailPresenter extends BasePresenter<INewsDetailView> {
 
     public void getNewDetail(String key) {
         view.showLoading();
-        mSubscriptions.add(newsServiceApi.getNewDetail(key)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<NewsDetailEntity>() {
-                    @Override
-                    public void onCompleted() {
+        newsServiceApi.getNewDetail(key).subscribe(new Observer<NewsDetailEntity>() {
+            @Override
+            public void onSubscribe(Disposable d) {
 
-                    }
+            }
 
-                    @Override
-                    public void onError(Throwable e) {
-                        view.showError();
-                    }
+            @Override
+            public void onError(Throwable e) {
+                view.showError(e.getMessage());
+            }
 
-                    @Override
-                    public void onNext(NewsDetailEntity newsDetailEntity) {
-                        view.hideLoading();
-                        if (newsDetailEntity != null) {
-                            view.setNewData(newsDetailEntity);
-                        } else {
-                            view.showEmpty();
-                        }
-                    }
-                }));
+            @Override
+            public void onNext(NewsDetailEntity newsDetailEntity) {
+                view.hideLoading();
+                if (newsDetailEntity != null) {
+                    view.setNewData(newsDetailEntity);
+                } else {
+                    view.showEmpty();
+                }
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
     }
 }

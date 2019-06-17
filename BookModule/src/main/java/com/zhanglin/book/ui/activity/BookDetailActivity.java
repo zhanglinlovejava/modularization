@@ -11,12 +11,12 @@ import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.bumptech.glide.Glide;
-import com.zhanglin.arouter.RouterPath;
-import com.zhanglin.basiccomponent.base.activity.BaseLoadingActivity;
-import com.zhanglin.basiccomponent.base.adapter.PagerAdapter;
 import com.zhanglin.book.R;
 import com.zhanglin.book.entity.BookEntity;
 import com.zhanglin.book.ui.fragment.DetailFragment;
+import com.zhanglin.commonlib.base.activity.BaseLoadingActivity;
+import com.zhanglin.commonlib.base.adapter.PagerAdapter;
+import com.zhanglin.commonlib.router.RouterPath;
 
 
 /**

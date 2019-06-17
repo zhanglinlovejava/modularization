@@ -1,6 +1,6 @@
 package com.zhanglin.topic.ui.view;
 
-import com.zhanglin.basiccomponent.base.view.BaseRecyclerView;
+import com.zhanglin.commonlib.base.view.BaseRecyclerView;
 import com.zhanglin.topic.entity.NewsStoryEntity;
 
 import java.util.List;
