@@ -1,9 +1,12 @@
-apply plugin: 'com.android.application'
+if (isModule.toBoolean()) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
 android {
     compileSdkVersion build_versions.target_sdk
     buildToolsVersion build_versions.build_tools
     defaultConfig {
-        applicationId "com.zhanglin.testmodule"
         minSdkVersion build_versions.min_sdk
         targetSdkVersion build_versions.target_sdk
         versionCode 1
@@ -14,6 +17,7 @@ android {
                 arguments = [moduleName: project.getName()]
             }
         }
+        resourcePrefix "topic_"
     }
     buildTypes {
         release {
@@ -21,27 +25,26 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    packagingOptions {
-        exclude 'META-INF/LICENSE'
-        exclude 'META-INF/rxjava.properties'
-        pickFirst 'lib/x86/libjsc.so'
-        pickFirst 'lib/armeabi/libjsc.so'
-        pickFirst 'lib/armeabi/libgnustl_shared.so'
-        pickFirst 'lib/x86/libgnustl_shared.so'
-        pickFirst 'lib/armeabi-v7a/libjsc.so'
+    sourceSets {
+        main {
+            if (isModule.toBoolean()) {
+                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/release/AndroidManifest.xml'
+                java {
+                    exclude 'debug/**'
+                }
+            }
+        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    if (!isModule.toBoolean()) {
-        implementation project(':module_photographtests')
-    } else {
-        implementation project(':lib_common')
-    }
-
+    annotationProcessor deps.arouter_compiler
+    api project(':lib_common')
 }
-

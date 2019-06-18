@@ -4,7 +4,6 @@ import android.view.View;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.zhanglin.commonlib.base.activity.BaseActivity;
-import com.zhanglin.commonlib.router.RouterPath;
 import com.zhanglin.testmodule.R;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
@@ -20,10 +19,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tvZhihuModule:
-                ARouter.getInstance().build(RouterPath.PATH_TOPIC_NEWS_ACTIVITY).navigation();
-                break;
-            case R.id.tvBookModule:
-                ARouter.getInstance().build(RouterPath.PATH_BOOK_LIST_ACTIVITY).navigation();
+                ARouter.getInstance().build("/zhihu/newsActivity").navigation();
                 break;
         }
 

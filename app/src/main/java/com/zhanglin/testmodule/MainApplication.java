@@ -1,14 +1,14 @@
 package com.zhanglin.testmodule;
 
-import android.app.Application;
 import android.content.Context;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.zhanglin.commonlib.base.app.BaseApplication;
 
 /**
  * Created by zhanglin on 2018/1/5.
  */
-public class MainApplication extends Application {
+public class MainApplication extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();

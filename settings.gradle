@@ -1,1 +1,1 @@
-include ':app', ':BookModule',  ':TopicModule', ':CommonLib'
+include ':app', ':module_photographtests', ':lib_common'

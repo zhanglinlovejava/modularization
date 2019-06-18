@@ -8,10 +8,9 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/BookModule" />
-            <option value="$PROJECT_DIR$/CommonLib" />
-            <option value="$PROJECT_DIR$/TopicModule" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/lib_common" />
+            <option value="$PROJECT_DIR$/module_photographtests" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

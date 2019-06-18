@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/BookModule/BookModule.iml" filepath="$PROJECT_DIR$/BookModule/BookModule.iml" />
-      <module fileurl="file://$PROJECT_DIR$/CommonLib/CommonLib.iml" filepath="$PROJECT_DIR$/CommonLib/CommonLib.iml" />
-      <module fileurl="file://$PROJECT_DIR$/TopicModule/TopicModule.iml" filepath="$PROJECT_DIR$/TopicModule/TopicModule.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lib_common/lib_common.iml" filepath="$PROJECT_DIR$/lib_common/lib_common.iml" />
       <module fileurl="file://$PROJECT_DIR$/modularization.iml" filepath="$PROJECT_DIR$/modularization.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module_photographtests/module_photographtests.iml" filepath="$PROJECT_DIR$/module_photographtests/module_photographtests.iml" />
     </modules>
   </component>
 </project>

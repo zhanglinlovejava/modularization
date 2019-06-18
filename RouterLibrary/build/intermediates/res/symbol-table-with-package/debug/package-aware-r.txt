@@ -1,2 +1,0 @@
-com.zhanglin.arouter
-int string arouter_app_name 0x7f150001
